@@ -4,7 +4,13 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "strict": true
+    "lib": [
+      "es2015"
+    ],
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true
   },
   "include": [
     "src/**/*.ts",

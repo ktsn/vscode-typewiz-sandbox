@@ -1,9 +1,9 @@
 {
-  "name": "vscode-typewiz",
+  "name": "vscode-typewiz-sandbox",
   "displayName": "TypeWiz",
   "version": "0.0.0",
   "author": "katashin",
-  "description": "Automatically discover and add missing types in your TypeScript code in VSCode",
+  "description": "Hobby implementation of integration for TypeWiz and VSCode",
   "keywords": [
     "TypeScript",
     "types",
@@ -11,15 +11,15 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
-  "homepage": "https://github.com/ktsn/vscode-typewiz",
-  "bugs": "https://github.com/ktsn/vscode-typewiz/issues",
+  "homepage": "https://github.com/ktsn/vscode-typewiz-sandbox",
+  "bugs": "https://github.com/ktsn/vscode-typewiz-sandbox/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ktsn/vscode-typewiz.git"
+    "url": "https://github.com/ktsn/vscode-typewiz-sandbox.git"
   },
   "engines": {
     "vscode": "^1.21.0"
@@ -29,17 +29,18 @@
   ],
   "publisher": "ktsn",
   "activationEvents": [
-    "onLanguage:typescript"
+    "*"
   ],
   "scripts": {
     "vscode:prepublish": "npm run clean && npm run test && npm run build",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "clean": "rm -rf lib",
     "build": "tsc -p src",
-    "dev": "jest --watch",
+    "watch": "tsc -w -p src",
     "lint": "tslint -p . && prettier --list-different \"{src,scripts,test}/**/*.{js,ts}\"",
     "format": "prettier --write \"{src,scripts,test}/**/*.{js,ts}\"",
     "test": "npm run lint && npm run test:unit",
+    "test:watch": "jest --watch",
     "test:unit": "jest"
   },
   "jest": {
@@ -59,7 +60,9 @@
     }
   },
   "devDependencies": {
+    "@types/debug": "0.0.30",
     "@types/jest": "^22.2.0",
+    "@types/node": "^9.4.7",
     "jest": "^22.4.2",
     "prettier": "1.11.0",
     "ts-jest": "^22.4.1",
@@ -68,5 +71,9 @@
     "tslint-config-prettier": "^1.9.0",
     "typescript": "^2.7.2",
     "vscode": "^1.1.13"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "typewiz": "^0.6.0"
   }
 }
