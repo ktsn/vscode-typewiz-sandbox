@@ -22,7 +22,7 @@
     "url": "https://github.com/ktsn/vscode-typewiz.git"
   },
   "engines": {
-    "vscode": "^0.21.0"
+    "vscode": "^1.21.0"
   },
   "categories": [
     "Formatters"
@@ -32,7 +32,8 @@
     "onLanguage:typescript"
   ],
   "scripts": {
-    "prepublishOnly": "npm run clean && npm run test && npm run build",
+    "vscode:prepublish": "npm run clean && npm run test && npm run build",
+    "postinstall": "node ./node_modules/vscode/bin/install",
     "clean": "rm -rf lib",
     "build": "tsc -p src",
     "dev": "jest --watch",
@@ -65,6 +66,7 @@
     "tslint": "^5.9.1",
     "tslint-config-ktsn": "^2.1.0",
     "tslint-config-prettier": "^1.9.0",
-    "typescript": "^2.7.2"
+    "typescript": "^2.7.2",
+    "vscode": "^1.1.13"
   }
 }
