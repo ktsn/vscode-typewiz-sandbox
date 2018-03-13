@@ -1,0 +1,5 @@
+# vscode-typewiz
+
+## License
+
+MIT
